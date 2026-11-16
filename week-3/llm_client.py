@@ -29,11 +29,11 @@ class GeminiProvider(LLMProvider):
 
     provider_name = "Gemini"
 
-    def __init__(self, api_key, model="gemini-3.8-flash"):
+    def __init__(self, api_key, model="gemini-3.6-flash"):
         self.model = model
         self.client = genai.Client(
             api_key=api_key,
-            http_options=types.HttpOptions(timeout=60000)
+            http_options=types.HttpOptions(timeout=120000)
         )
 
     def generate(self, prompt):
